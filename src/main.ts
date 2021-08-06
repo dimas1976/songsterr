@@ -19,12 +19,14 @@ const appContainer = createElement('div', {
           className: 'main__input',
           placeholder: 'Select an artist',
         }),
-        createElement('div', {
-          className: 'content-container',
+        createElement('section', {
+          className: 'content-section',
           childElements: [
-            //hier kommt die Songliste,
             createElement('div', {
-              className: 'content-container__chord',
+              className: 'content-section__songs',
+            }),
+            createElement('div', {
+              className: 'content-section__chord',
             }),
           ],
         }),
