@@ -24,8 +24,10 @@ const content = createElement('section', {
 const input = createElement('input', {
   className: 'main__input',
   placeholder: 'Select an artist',
-  oninput: async () => {
+  oninput: () => {
     songsList.innerHTML = '';
+  },
+  onchange: async () => {
     const searchArtist = input.value;
     const filteredSongs: Song[] = await getSong(searchArtist);
     const createdSongsList = filteredSongs.map((song) => {
@@ -57,10 +59,6 @@ const appContainer = createElement('div', {
     }),
   ],
 });
-
-function onHandler() {
-  console.log('huhu');
-}
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
