@@ -1,4 +1,5 @@
 import { createElement } from '../utils/createElement';
+import './songsList.css';
 
 export function createSongList(): HTMLElement {
   return createElement('ul', {
