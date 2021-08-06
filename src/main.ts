@@ -1,3 +1,4 @@
+import { createSongList } from './components/songsList';
 import './style.css';
 import { createElement } from './utils/createElement';
 
@@ -9,6 +10,7 @@ const appContainer = createElement('div', {
       childElements: [
         createElement('h1', {
           className: 'header__heading',
+          innerText: 'Let`s rock',
         }),
       ],
     }),
@@ -22,9 +24,7 @@ const appContainer = createElement('div', {
         createElement('section', {
           className: 'content-section',
           childElements: [
-            createElement('div', {
-              className: 'content-section__songs',
-            }),
+            createSongList(),
             createElement('div', {
               className: 'content-section__chord',
             }),
@@ -38,8 +38,5 @@ const appContainer = createElement('div', {
 const app = document.querySelector<HTMLDivElement>('#app');
 
 if (app !== null) {
-  app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
+  app.append(appContainer);
 }
