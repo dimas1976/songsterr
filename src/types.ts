@@ -1,4 +1,5 @@
 export type Song = {
+  id: number;
   artistName: string;
   songName: string;
 };
