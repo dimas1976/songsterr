@@ -2,7 +2,11 @@ import { Song } from '../types';
 import { createElement } from '../utils/createElement';
 import './songsList.css';
 
-export function createSongList({ artistName, songName }: Song): HTMLElement {
+export function createSongList({
+  artistName,
+  songName,
+  id,
+}: Song): HTMLElement {
   return createElement('ul', {
     className: 'song',
     childElements: [
@@ -12,7 +16,13 @@ export function createSongList({ artistName, songName }: Song): HTMLElement {
       }),
       createElement('li', {
         className: 'song__item',
-        innerText: songName,
+        // innerText: songName,
+        childElements: [
+          createElement('a', {
+            href: `http://www.songsterr.com/a/wa/song?id=${id}`,
+            innerText: songName,
+          }),
+        ],
       }),
     ],
   });
