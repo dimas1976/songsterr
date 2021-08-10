@@ -14,9 +14,12 @@ export async function getSongs(artistName?: string): Promise<Song[]> {
         artistName: song.artist.name,
         songName: song.title,
       };
+
+      if (!formattedSong) {
+        throw new Error(`There is no song ${formattedSong}`);
+      }
       return formattedSong;
     }
-    return;
   });
   return songs;
 }
