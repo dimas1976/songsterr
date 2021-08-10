@@ -1,10 +1,12 @@
 import { createSongList } from './components/songsList';
 import './style.css';
 import { Song } from './types';
-import { getSong } from './utils/api';
+import { getSongs } from './utils/api';
 import { createElement } from './utils/createElement';
 
 async function run() {
+  const firstPortion: Song[] = await getSongs();
+
   const songsList = createElement('div', {
     className: 'content-section__list',
     childElements: [
@@ -32,7 +34,7 @@ async function run() {
     },
     onchange: async () => {
       const searchArtist = input.value;
-      const filteredSongs: Song[] = await getSong(searchArtist);
+      const filteredSongs: Song[] = await getSongs(searchArtist);
       const createdSongsList = filteredSongs.map((song) => {
         const listenedSong = createSongList(song);
         // listenedSong.onclick = () => {
